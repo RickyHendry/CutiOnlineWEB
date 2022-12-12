@@ -1,335 +1,264 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PokemonAPI | Dashboard</title>
-
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="~/adminlte/plugins/fontawesome-free/css/all.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="~/adminlte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="~/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="~/adminlte/plugins/jqvmap/jqvmap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="~/adminlte/dist/css/adminlte.min.css">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="~/adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="~/adminlte/plugins/daterangepicker/daterangepicker.css">
-    <!-- summernote -->
-    <link rel="stylesheet" href="~/adminlte/plugins/summernote/summernote-bs4.min.css">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
-    <link rel="stylesheet" href="~/css/style.css">
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/argon/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="~/argon/assets/img/favicon.png">
+    <title>
+        Dashboard Cuti Online
+    </title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Nucleo Icons -->
+    <link href="~/argon/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="~/argon/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="~/argon/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link id="pagestyle" href="~/argon/assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
 
-        <!-- Preloader -->
-        <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="~/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+<body class="g-sidenav-show   bg-gray-100">
+    <div class="min-height-300 bg-primary position-absolute w-100"></div>
+    <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
+        <div class="sidenav-header">
+            <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+            <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/argon-dashboard/pages/dashboard.html " target="_blank">
+                <img src="~/argon/assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
+                <span class="ms-1 font-weight-bold">Website Cuti</span>
+            </a>
         </div>
-
-        <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <!-- Left navbar links -->
+        <hr class="horizontal dark mt-0">
+        <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
-            </ul>
-
-            <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Navbar Search -->
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <i class="fas fa-search"></i>
+                    <a class="nav-link active" href="~/argon/pages/dashboard.html">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Dashboard</span>
                     </a>
-                    <div class="navbar-search-block">
-                        <form class="form-inline">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-navbar" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
                 </li>
-
-                <!-- Messages Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-comments"></i>
-                        <span class="badge badge-danger navbar-badge">3</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="~/adminlte/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Brad Diesel
-                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">Call me whenever you can...</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="~/adminlte/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        John Pierce
-                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">I got your message bro</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="~/adminlte/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Nora Silvester
-                                        <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">The subject goes here</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                    </div>
-                </li>
-                <!-- Notifications Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-item dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                    </div>
+                
+                <li class="nav-item mt-3">
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                        <i class="fas fa-expand-arrows-alt"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
-                        <i class="fas fa-th-large"></i>
+                    <a class="nav-link " href="~/argon/pages/profile.html">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Profile</span>
                     </a>
                 </li>
             </ul>
-        </nav>
-        <!-- /.navbar -->
-        <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link" style="text-decoration:none">
-                <img src="~/adminlte/dist/img/pokemon_logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">POKEDEX</span>
-            </a>
-
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="~/adminlte/dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a style="text-decoration:none" href="#" class="d-block">RickyHendry</a>
-                    </div>
-                </div>
-
-                <!-- SidebarSearch Form -->
-                <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
+        </div>
+    </aside>
+    <main class="main-content position-relative border-radius-lg ">
+        <!-- Navbar -->
+        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur" data-scroll="false">
+            <div class="container-fluid py-1 px-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li>
+                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">Dashboard</li>
+                    </ol>
+                    <h6 class="font-weight-bolder text-white mb-0">Dashboard</h6>
+                </nav>
+                <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                        <div class="input-group">
+                            <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" placeholder="Ketikan disini...">
                         </div>
                     </div>
                 </div>
-
-                <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-                             with font-awesome or any other icon font library -->
-                        <li class="nav-item menu-open">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Dashboard
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="./index.html" class="nav-link active">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>PokemonAPI</p>
-                                    </a>
-                                </li>
-                            </ul>
-                </nav>
-                <!-- /.sidebar-menu -->
             </div>
-            <!-- /.sidebar -->
-        </aside>
-
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
-                        </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard v1</li>
-                            </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content-header -->
-            <!-- Main content -->
-            @RenderBody()
-            <!-- /.content -->
+        </nav>
+        <!-- End Navbar -->
+        @RenderBody()
+        <div>
+        
         </div>
-        <!-- /.content-wrapper -->
-        @*<footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.2.0
+    </main>
+    <!--<div class="fixed-plugin">
+        <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+            <i class="fa fa-cog py-2"> </i>
+        </a>
+        <div class="card shadow-lg">
+            <div class="card-header pb-0 pt-3 ">
+                <div class="float-start">
+                    <h5 class="mt-3 mb-0">Argon Configurator</h5>
+                    <p>See our dashboard options.</p>
+                </div>
+                <div class="float-end mt-4">
+                    <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+                        <i class="fa fa-close"></i>
+                    </button>
+                </div>-->
+                <!-- End Toggle Button -->
+            <!--</div>
+            <hr class="horizontal dark my-1">
+            <div class="card-body pt-sm-3 pt-0 overflow-auto">-->
+                <!-- Sidebar Backgrounds -->
+                <!--<div>
+                    <h6 class="mb-0">Sidebar Colors</h6>
+                </div>
+                <a href="javascript:void(0)" class="switch-trigger background-color">
+                    <div class="badge-colors my-2 text-start">
+                        <span class="badge filter bg-gradient-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
+                        <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
+                        <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
+                        <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
+                        <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
+                        <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
+                    </div>
+                </a>-->
+                <!-- Sidenav Type -->
+                <!--<div class="mt-3">
+                    <h6 class="mb-0">Sidenav Type</h6>
+                    <p class="text-sm">Choose between 2 different sidenav types.</p>
+                </div>
+                <div class="d-flex">
+                    <button class="btn bg-gradient-primary w-100 px-3 mb-2 active me-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
+                    <button class="btn bg-gradient-primary w-100 px-3 mb-2" data-class="bg-default" onclick="sidebarType(this)">Dark</button>
+                </div>
+                <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>-->
+                <!-- Navbar Fixed -->
+                <!--<div class="d-flex my-3">
+                    <h6 class="mb-0">Navbar Fixed</h6>
+                    <div class="form-check form-switch ps-0 ms-auto my-auto">
+                        <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
+                    </div>
+                </div>
+                <hr class="horizontal dark my-sm-4">
+                <div class="mt-2 mb-5 d-flex">
+                    <h6 class="mb-0">Light / Dark</h6>
+                    <div class="form-check form-switch ps-0 ms-auto my-auto">
+                        <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
+                    </div>
+                </div>
+                <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/argon-dashboard">Free Download</a>
+                <a class="btn btn-outline-dark w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/license/argon-dashboard">View documentation</a>
+                <div class="w-100 text-center">
+                    <a class="github-button" href="https://github.com/creativetimofficial/argon-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/argon-dashboard on GitHub">Star</a>
+                    <h6 class="mt-3">Thank you for sharing!</h6>
+                    <a href="https://twitter.com/intent/tweet?text=Check%20Argon%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fargon-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
+                        <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/argon-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
+                        <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
+                    </a>
+                </div>
             </div>
-        </footer>*@
+        </div>
+    </div>-->
+    <!--   Core JS Files   -->
+    <script src="~/argon/assets/js/core/popper.min.js"></script>
+    <script src="~/argon/assets/js/core/bootstrap.min.js"></script>
+    <script src="~/argon/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="~/argon/assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="~/argon/assets/js/plugins/chartjs.min.js"></script>
+    @*<script>
+        var ctx1 = document.getElementById("chart-line").getContext("2d");
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
-    </div>
-    <!-- ./wrapper -->
-    <!-- jQuery -->
-    <script src="~/adminlte/plugins/jquery/jquery.min.js"></script>
-    <!-- jQuery UI 1.11.4 -->
-    <script src="~/adminlte/plugins/jquery-ui/jquery-ui.min.js"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <script>
-        $.widget.bridge('uibutton', $.ui.button)
+        var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
+
+        gradientStroke1.addColorStop(1, 'rgba(94, 114, 228, 0.2)');
+        gradientStroke1.addColorStop(0.2, 'rgba(94, 114, 228, 0.0)');
+        gradientStroke1.addColorStop(0, 'rgba(94, 114, 228, 0)');
+        new Chart(ctx1, {
+            type: "line",
+            data: {
+                labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                datasets: [{
+                    label: "Mobile apps",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#5e72e4",
+                    backgroundColor: gradientStroke1,
+                    borderWidth: 3,
+                    fill: true,
+                    data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+                    maxBarThickness: 6
+
+                }],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index',
+                },
+                scales: {
+                    y: {
+                        grid: {
+                            drawBorder: false,
+                            display: true,
+                            drawOnChartArea: true,
+                            drawTicks: false,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            display: true,
+                            padding: 10,
+                            color: '#fbfbfb',
+                            font: {
+                                size: 11,
+                                family: "Open Sans",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                    x: {
+                        grid: {
+                            drawBorder: false,
+                            display: false,
+                            drawOnChartArea: false,
+                            drawTicks: false,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            display: true,
+                            color: '#ccc',
+                            padding: 20,
+                            font: {
+                                size: 11,
+                                family: "Open Sans",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                },
+            },
+        });
     </script>
-    <!-- Bootstrap 4 -->
-    <script src="~/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- ChartJS -->
-    <script src="~/adminlte/plugins/chart.js/Chart.min.js"></script>
-    <!-- Sparkline -->
-    <script src="~/adminlte/plugins/sparklines/sparkline.js"></script>
-    <!-- JQVMap -->
-    <script src="~/adminlte/plugins/jqvmap/jquery.vmap.min.js"></script>
-    <script src="~/adminlte/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="~/adminlte/plugins/jquery-knob/jquery.knob.min.js"></script>
-    <!-- daterangepicker -->
-    <script src="~/adminlte/plugins/moment/moment.min.js"></script>
-    <script src="~/adminlte/plugins/daterangepicker/daterangepicker.js"></script>
-    <!-- Tempusdominus Bootstrap 4 -->
-    <script src="~/adminlte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-    <!-- Summernote -->
-    <script src="~/adminlte/plugins/summernote/summernote-bs4.min.js"></script>
-    <!-- overlayScrollbars -->
-    <script src="~/adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="~/adminlte/dist/js/adminlte.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="~/adminlte/dist/js/demo.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="~/adminlte/dist/js/pages/dashboard.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-            crossorigin="anonymous"></script>
-    <script type="text/javascript" charset="utf8"
-            src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-            crossorigin="anonymous"></script>
-
-
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
-    <script src="~/js/script.js"></script>
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+    </script>*@
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="~/argon/assets/js/argon-dashboard.min.js?v=2.0.4"></script>
     @RenderSection("Scripts", required: false)
 </body>
+
 </html>
