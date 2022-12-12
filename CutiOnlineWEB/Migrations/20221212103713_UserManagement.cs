@@ -2,7 +2,7 @@
 
 namespace CutiOnlineWEB.Migrations
 {
-    public partial class UserManagament : Migration
+    public partial class UserManagement : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
