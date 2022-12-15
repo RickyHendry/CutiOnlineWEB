@@ -24,7 +24,7 @@
                 <div class="headerContainer clearfix">
                     <ul>
                         <li><a href="https://imais.pelindomarines.com/ci/setting/profile">Profil</a></li>
-                        <li><a asp-action="login">Logout</a></li>
+                        <li><a asp-controller="Account" asp-action="Login">Logout</a></li>
                     </ul>
                     <div class="tglProfile">
                         <div class="tglSaja">
@@ -119,17 +119,18 @@
         </div><!-- end konten -->
         @RenderBody()
 
-        <!--<div class="push_sticky_footer"></div>
-    </div>--><!-- wrap_sticky_footer -->
-    <!--<div class="footer">
+        <div class="push_sticky_footer"></div>
+        </div>
+    <!-- wrap_sticky_footer -->
+    <div class="footer">
         <div class="footerWrapper">
             <div class="footerContent">
                 <p>Copyright &copy; 202. PT Maju Terus. All Right Reserved.</p>
             </div>
         </div>
-    </div>-->
+    </div>
 
-    <!--<a class="btn btn-default" href="https://imais.pelindomarines.com/ci/admin_lte/img/akhlak.png" data-featherlight="image" id="akhlak">#</a>-->
+    
     <script type="text/javascript" src="~/js/Ma/jquery.min.js"></script>
     <script type="text/javascript" src="~/js/Ma/responsiveslides.min.js"></script>
     <script src="~/featherlight/featherlight.min.js" type="text/javascript" charset="utf-8"></script>

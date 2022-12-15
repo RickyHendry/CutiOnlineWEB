@@ -198,8 +198,8 @@ body.bgIntranet {
         }
 
             .headerMenu ul li a:hover {
-                border-color: #457577;
-                background: #457577;
+                border-color: #8d448b;
+                background: #8d448b;
             }
 
 .rslides {
@@ -347,7 +347,7 @@ body.bgIntranet {
 
 .tglSaja h3 {
     text-shadow: 1px 0.5px #000;
-    background: #53a99e;
+    background: #8d448b;
     padding: 13px 5px;
     text-align: center;
     font-size: 35px;
@@ -399,7 +399,7 @@ body.bgIntranet {
         display: block;
         position: relative;
         text-align: center;
-        color: #457577;
+        color: #8d448b;
         text-decoration: none;
     }
 
@@ -465,7 +465,7 @@ body.bgIntranet {
         }
 
         .menuHome li a:hover .itemMenuBawah h5 {
-            color: #68b1b4;
+            color: #8d448b;
             font-style: italic;
         }
 
@@ -474,7 +474,7 @@ body.bgIntranet {
 							FOOTER
 =======================================================================*/
 .footer {
-    background: #30494e;
+    background: #8d448b;
     min-width: 1024px;
     position: relative;
     display: block;
