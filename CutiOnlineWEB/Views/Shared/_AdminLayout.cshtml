@@ -150,6 +150,7 @@
                 </div>
             </div>
         </div><!-- end konten -->
+        @RenderBody()
 
         <div class="push_sticky_footer"></div>
     </div><!-- wrap_sticky_footer -->
@@ -181,20 +182,21 @@
     </style>
     <script type="text/javascript">
 
-		jQuery(window).load(function() {
-			//$("#flyer_assesmen_budaya_perusahaan").trigger( "click" );
-		});
+        jQuery(window).load(function () {
+            //$("#flyer_assesmen_budaya_perusahaan").trigger( "click" );
+        });
 
-		$(function () {
-		$('#wadahSlider').show();
-  		$("#slideImais").responsiveSlides({
-	        speed: 750,auto: true, pager: true,
-      	});
+        $(function () {
+            $('#wadahSlider').show();
+            $("#slideImais").responsiveSlides({
+                speed: 750, auto: true, pager: true,
+            });
 
-		$(document).ready(function(){
-			//$('#akhlak').click();
-		});
-  	});
+            $(document).ready(function () {
+                //$('#akhlak').click();
+            });
+        });
     </script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
