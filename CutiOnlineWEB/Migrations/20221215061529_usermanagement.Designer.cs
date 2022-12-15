@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CutiOnlineWEB.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20221212103713_UserManagement")]
-    partial class UserManagement
+    [Migration("20221215061529_usermanagement")]
+    partial class usermanagement
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

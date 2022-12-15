@@ -67,7 +67,7 @@ namespace CutiOnlineWEB
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Account}/{action=register}/{id?}");
+                    pattern: "{controller=Account}/{action=login}/{id?}");
             });
         }
     }
