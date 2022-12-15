@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>VICO - PT. Maju Terus</title>
+    <meta name="robots" content="noindex,nofollow,noarchive">
+    <meta name="googlebot" content="noindex,nofollow,noarchive">
+    <meta name="bingbot" content="noindex,nofollow,noarchive">
+    <meta name="msnbot" content="noindex,nofollow,noarchive">
+    <meta name="slurp" content="noindex,nofollow,noarchive">
+    <meta name="teoma" content="noindex,nofollow,noarchive">
+    <meta name="yahoobot" content="noindex,nofollow,noarchive">
+    <link rel="SHORTCUT ICON" href="https://imais.pelindomarines.com/ci/admin_lte/img/pms.ico?v=2" type="image/x-icon">
+    <link rel="stylesheet" href="~/css/Sty/imais.css">
+    <link type="text/css" rel="stylesheet" href="~/featherlight/featherlight.min.css" />
+</head>
+<body>
+    <div class="wrap_sticky_footer">
+        <div class="header">
+            <div class="headerMenu">
+                <div class="headerContainer clearfix">
+                    <ul>
+                        <li><a href="https://imais.pelindomarines.com/ci/setting/profile">Profil</a></li>
+                        <li><a asp-action="login">Logout</a></li>
+                    </ul>
+                    <div class="tglProfile">
+                        <div class="tglSaja">
+                            <h3>15</h3>
+                            <h4>December</h4>
+                            <h4>2022</h4>
+                            <h5>18:43 PM</h5>
+                        </div>
+                        <div class="profileSaja">
+                            <h4>M. Deneb Iswandi</h4>
+                            <h4>Manager</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="headerSlide">
+                <div class="wadahSlider" id="wadahSlider">
+                    <ul id="slideImais">
+                        <li>
+                            <img src="https://imais.pelindomarines.com/ci/admin_lte/img/akhlak.png" alt="Jimi Hendrix">
+                            <p class="caption">Knowledge speaks, but wisdom listens<br><br><span>Jimi Hendrix</span></p>
+                        </li>
+                        <li>
+                            <img src="https://imais.pelindomarines.com/ci/admin_lte/img/image-4.jpg" alt="Ir. Soekarno">
+                            <p class="caption">Apabila di dalam diri seseorang masih ada rasa malu dan takut untuk berbuat suatu kebaikan, maka jaminan bagi orang tersebut adalah tidak akan bertemunya ia dengan kemajuan selangkah pun.<br><br><span>Ir. Soekarno</span></p>
+                        </li>
+                        <li>
+                            <img src="https://imais.pelindomarines.com/ci/admin_lte/img/image-3.jpg" alt="Theodore Roosevelt">
+                            <p class="caption">Do what you can, with what you have, where you are.<br><br><span>Theodore Roosevelt</span></p>
+                        </li>
+                        <li>
+                            <img src="https://imais.pelindomarines.com/ci/admin_lte/img/image-2.jpg" alt="Albert Einstein">
+                            <p class="caption">LIFE is like riding bicycle. To keep your balance, you must KEEP MOVING<br><br><span>Albert Einstein</span></p>
+                        </li>
+                        <li>
+                            <img src="https://imais.pelindomarines.com/ci/admin_lte/img/image-6.jpg" alt="Nelson Mandela">
+                            <p class="caption">It always seems imposibble until its done<br><br><span>Nelson Mandela</span></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="headerLengkung"></div>
+        </div><!-- end header -->
+
+        <div class="konten">
+            <div class="kontenKontainer clearfix">
+                <div class="kontenUtama">
+                    <ul class="menuHome">
+                        <li>
+                            <a href="https://imais.pelindomarines.com/ci/dashboard-ams.html">
+                                <div class="itemMenuAtas">
+                                    <div class="ikonLingakaran">
+                                        <img src="https://imais.pelindomarines.com/ci/admin_lte/img/ikon/surat.png" title="Surat" />
+                                    </div>
+                                </div>
+                                <div class="itemMenuBawah">
+                                    <h5>Surat</h5>
+                                </div>
+                            </a>
+                        </li>
+                       
+                        <li>
+                            <a asp-controller="Account" asp-action="Register">
+                                <div class="itemMenuAtas">
+                                    <div class="ikonLingakaran">
+                                        <img src="https://imais.pelindomarines.com/ci/admin_lte/img/ikon/marcie.png" title="VICO" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5>VICO</h5>
+                                </div>
+                            </a>
+                        </li>
+                       
+                        
+                        <li>
+                            <a asp-controller="Account" asp-action="Login">
+                                <div class="itemMenuAtas">
+                                    <div class="ikonLingakaran">
+                                        <img src="https://imais.pelindomarines.com/ci/admin_lte/img/ikon/logout.png" title="Logout" />
+                                    </div>
+                                </div>
+                                <div class="itemMenuBawah">
+                                    <h5>Logout</h5>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div><!-- end konten -->
+        @RenderBody()
+
+        <!--<div class="push_sticky_footer"></div>
+    </div>--><!-- wrap_sticky_footer -->
+    <!--<div class="footer">
+        <div class="footerWrapper">
+            <div class="footerContent">
+                <p>Copyright &copy; 202. PT Maju Terus. All Right Reserved.</p>
+            </div>
+        </div>
+    </div>-->
+
+    <!--<a class="btn btn-default" href="https://imais.pelindomarines.com/ci/admin_lte/img/akhlak.png" data-featherlight="image" id="akhlak">#</a>-->
+    <script type="text/javascript" src="~/js/Ma/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/Ma/responsiveslides.min.js"></script>
+    <script src="~/featherlight/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        .lightbox {
+            display: none
+        }
+    </style>
+    <script type="text/javascript">
+
+        jQuery(window).load(function () {
+            
+        });
+
+        $(function () {
+            $('#wadahSlider').show();
+            $("#slideImais").responsiveSlides({
+                speed: 750, auto: true, pager: true,
+            });
+
+            $(document).ready(function () {
+                
+            });
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
