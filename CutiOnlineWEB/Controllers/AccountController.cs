@@ -27,6 +27,11 @@ namespace CutiOnlineWEB.Controllers
             return View();
         }
 
+        public IActionResult AdminLayout()
+        {
+            return View();
+        }
+
 
         [HttpPost]
         public IActionResult Register(Register register)
