@@ -128,7 +128,7 @@ body.bgIntranet {
 }
 
 .headerInside {
-    background: #324b50;
+    background: #8d448b;
     height: 47px;
 }
 
@@ -425,7 +425,7 @@ body.bgIntranet {
             }
 
         .menuHome li a:hover .ikonLingakaran {
-            background: #4ccdbc;
+            background: #8d448b;
             border-radius: 40%;
             -moz-border-radius: 40%;
             -o-border-radius: 40%;
@@ -481,7 +481,7 @@ body.bgIntranet {
 }
 
 .footerWrapper {
-    background: #30494e;
+    background: #8d448b;
     width: 100% !important;
     padding: 7px 0;
     position: relative;
