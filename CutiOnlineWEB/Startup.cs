@@ -26,8 +26,9 @@ namespace CutiOnlineWEB
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
             services.AddRazorPages();
+
+            //dependency injection
 
             services.AddScoped<AccountRepository>();
             services.AddSession(options =>
@@ -41,7 +42,6 @@ namespace CutiOnlineWEB
                 option.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
             services.AddControllersWithViews();
         }
-    
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -56,12 +56,14 @@ namespace CutiOnlineWEB
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

@@ -40,7 +40,7 @@ namespace CutiOnlineWEB.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public IActionResult Login(Login login)
         {
             if (ModelState.IsValid)
