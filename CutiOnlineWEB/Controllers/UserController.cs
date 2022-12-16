@@ -16,7 +16,7 @@ namespace CutiOnlineWEB.Controllers
         {
             this.CrudRepository = CrudRepository;
         }
-        public IActionResult Index()
+        public IActionResult Privacy()
         {
             if (HttpContext.Session.GetString("Role").Equals("Admin"))
             {
