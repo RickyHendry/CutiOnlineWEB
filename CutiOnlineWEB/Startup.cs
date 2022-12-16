@@ -28,7 +28,9 @@ namespace CutiOnlineWEB
         {
             services.AddRazorPages();
 
-            //dependency injection
+            // dependence injection
+            services.AddScoped<CrudRepository>();
+            
 
             services.AddScoped<AccountRepository>();
             services.AddSession(options =>

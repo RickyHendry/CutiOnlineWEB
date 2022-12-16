@@ -21,6 +21,19 @@ namespace CutiOnlineWEB.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "RCrud",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RCrud", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Roles",
                 columns: table => new
                 {
@@ -52,6 +65,26 @@ namespace CutiOnlineWEB.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Cruds",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true),
+                    RcrudId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cruds", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Cruds_RCrud_RcrudId",
+                        column: x => x.RcrudId,
+                        principalTable: "RCrud",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserRoles",
                 columns: table => new
                 {
@@ -78,6 +111,11 @@ namespace CutiOnlineWEB.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Cruds_RcrudId",
+                table: "Cruds",
+                column: "RcrudId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UserRoles_RoleId",
                 table: "UserRoles",
                 column: "RoleId");
@@ -91,7 +129,13 @@ namespace CutiOnlineWEB.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Cruds");
+
+            migrationBuilder.DropTable(
                 name: "UserRoles");
+
+            migrationBuilder.DropTable(
+                name: "RCrud");
 
             migrationBuilder.DropTable(
                 name: "Roles");

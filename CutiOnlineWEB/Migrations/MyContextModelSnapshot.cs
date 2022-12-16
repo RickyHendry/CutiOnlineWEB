@@ -18,6 +18,26 @@ namespace CutiOnlineWEB.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("CutiOnlineWEB.Models.Crud", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RcrudId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RcrudId");
+
+                    b.ToTable("Cruds");
+                });
+
             modelBuilder.Entity("CutiOnlineWEB.Models.Employee", b =>
                 {
                     b.Property<int>("Id")
@@ -34,6 +54,21 @@ namespace CutiOnlineWEB.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("CutiOnlineWEB.Models.RCrud", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RCrud");
                 });
 
             modelBuilder.Entity("CutiOnlineWEB.Models.Role", b =>
@@ -84,6 +119,15 @@ namespace CutiOnlineWEB.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserRoles");
+                });
+
+            modelBuilder.Entity("CutiOnlineWEB.Models.Crud", b =>
+                {
+                    b.HasOne("CutiOnlineWEB.Models.RCrud", "RCrud")
+                        .WithMany()
+                        .HasForeignKey("RcrudId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("CutiOnlineWEB.Models.User", b =>
