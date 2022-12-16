@@ -77,7 +77,7 @@ namespace CutiOnlineWEB.Controllers
 
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public IActionResult User(Pengguna pengguna)
+        public IActionResult Pengguna(Pengguna pengguna)
         {
             if (ModelState.IsValid)
             {
