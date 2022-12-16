@@ -18,10 +18,10 @@ namespace CutiOnlineWEB.Controllers
         }
         public IActionResult Privacy()
         {
-            if (HttpContext.Session.GetString("Role").Equals("Admin"))
+            if (HttpContext.Session.GetString("RoleId").Equals("1"))
             {
                 var data = CrudRepository.Get();
-                return View();
+                return RedirectToAction("Privacy", "Home");
             }
             return RedirectToAction("Unauthorized", "ErrorPage");   
         }
