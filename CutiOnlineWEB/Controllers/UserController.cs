@@ -12,16 +12,16 @@ namespace CutiOnlineWEB.Controllers
     {
         CrudRepository CrudRepository;
 
-        public UserController(CrudRepository CrudRepository)
+        public UserController(CrudRepository crudRepository)
         {
-            this.CrudRepository = CrudRepository;
+            this.CrudRepository = crudRepository;
         }
-        public IActionResult Privacy()
+        public IActionResult Index()
         {
-            if (HttpContext.Session.GetString("RoleId").Equals("1"))
+            if (HttpContext.Session.GetString("Role").Equals("Admin"))
             {
                 var data = CrudRepository.Get();
-                return RedirectToAction("Privacy", "Home");
+                return View();
             }
             return RedirectToAction("Unauthorized", "ErrorPage");   
         }

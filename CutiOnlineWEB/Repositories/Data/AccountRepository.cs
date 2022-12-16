@@ -98,11 +98,32 @@ namespace CutiOnlineWEB.Repositories.Data
             }
             return null;
         }
+        public ResponseLogin Pengguna(Pengguna pengguna)
+        {
+            var data = myContext.UserRoles
+                .Include(x => x.Role)
+                .Include(x => x.User)
+                .Include(x => x.User.Employee)
+                .FirstOrDefault(x => x.User.Employee.Email.Equals(pengguna.Email));
+            var verify = Hashing.ValidatePassword(pengguna.Password, data.User.Password);
+
+            if (verify)
+            {
+                var response = new ResponseLogin()
+                {
+                    Id = data.User.Employee.Id,
+                    FullName = data.User.Employee.FullName,
+                    Email = data.User.Employee.Email,
+                    Role = data.Role.Name
+                };
+                return response;
+            }
+            return null;
 
 
 
 
 
 
-    }
+        }
 }
