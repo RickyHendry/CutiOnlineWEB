@@ -64,9 +64,9 @@ namespace CutiOnlineWEB.Controllers
                     //inisialisasi nilai pada session
                     HttpContext.Session.SetString("Role", data.Role);
                     HttpContext.Session.SetInt32("Id", data.Id);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Privacy", "Home");
                 }
-                return RedirectToAction("Unauthorized", "ErrorPage");
+                return RedirectToAction("Index", "Home");
             }
             return View();
         }
