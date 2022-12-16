@@ -32,6 +32,11 @@ namespace CutiOnlineWEB.Controllers
             return View();
         }
 
+        public IActionResult Kontak()
+        {
+            return View();
+        }
+
 
         [HttpPost]
         public IActionResult Register(Register register)
