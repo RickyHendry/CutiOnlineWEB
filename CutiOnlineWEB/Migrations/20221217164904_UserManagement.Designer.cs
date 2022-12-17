@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CutiOnlineWEB.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20221217144140_UserManagement")]
+    [Migration("20221217164904_UserManagement")]
     partial class UserManagement
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,8 +31,8 @@ namespace CutiOnlineWEB.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Password")
-                        .HasColumnType("int");
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -79,9 +79,6 @@ namespace CutiOnlineWEB.Migrations
 
                     b.Property<int?>("AdminId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");

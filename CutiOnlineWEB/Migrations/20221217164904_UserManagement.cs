@@ -13,7 +13,7 @@ namespace CutiOnlineWEB.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Email = table.Column<string>(nullable: true),
-                    Password = table.Column<int>(nullable: false)
+                    Password = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -52,7 +52,6 @@ namespace CutiOnlineWEB.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false),
-                    Email = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
                     AdminId = table.Column<int>(nullable: true)
                 },

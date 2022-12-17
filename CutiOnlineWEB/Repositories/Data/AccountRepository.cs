@@ -100,9 +100,10 @@ namespace CutiOnlineWEB.Repositories.Data
             var data = myContext.UserRoles
                .Include(x => x.Role)
                .Include(x => x.User)
-               .FirstOrDefault(x => x.User.Email.Equals(login.Email));
-            var Verify = Hashing.ValidatePassword(login.Password, data.User.Password);
-            if (Verify)
+               //.Include(x => x.User.Employee)
+               .FirstOrDefault(x => x.User.Employee.Email.Equals(login.Email));
+            var verify = Hashing.ValidatePassword(login.Password, data.User.Password);
+            if (verify)
             {
                 if (data.Role.Id == 1)
                 {
@@ -110,9 +111,9 @@ namespace CutiOnlineWEB.Repositories.Data
                                 .Include(x => x.Role)
                                 .Include(x => x.User)
                                 .Include(x => x.User.Admin)
-                                .FirstOrDefault(x => x.User.Email.Equals(login.Email));
-                    var verify = Hashing.ValidatePassword(login.Password, data.User.Password);
-                    if (Verify)
+                                .FirstOrDefault(x => x.User.Admin.Email.Equals(login.Email));
+                    var Verify = Hashing.ValidatePassword(login.Password, data.User.Password);
+                    if (verify)
                         if (data1 != null)
                         {
                             var respon = new ResponseLogin()
@@ -127,21 +128,21 @@ namespace CutiOnlineWEB.Repositories.Data
                 }
                 else if (data.Role.Id == 2)
                 {
-                    var data1 = myContext.UserRoles
+                    var data2 = myContext.UserRoles
                                .Include(x => x.Role)
                                .Include(x => x.User)
                                .Include(x => x.User.Employee)
-                               .FirstOrDefault(x => x.User.Email.Equals(login.Email));
-                    var verify = Hashing.ValidatePassword(login.Password, data.User.Password);
-                    if (Verify)
-                        if (data1 != null)
+                               .FirstOrDefault(x => x.User.Employee.Email.Equals(login.Email));
+                    var Verify = Hashing.ValidatePassword(login.Password, data.User.Password);
+                    if (verify)
+                        if (data2 != null)
                         {
                             var respon = new ResponseLogin()
                             {
-                                Id = data1.User.Id,
-                                IdRole = data1.Role.Id,
-                                FullName = data1.User.Employee.FullName,
-                                Role = data1.Role.Name
+                                Id = data2.User.Id,
+                                IdRole = data2.Role.Id,
+                                FullName = data2.User.Employee.FullName,
+                                Role = data2.Role.Name
                             };
                             return respon;
                         }
