@@ -90,7 +90,7 @@ namespace CutiOnlineWEB.Repositories.Data
                 var response = new ResponseLogin()
                 {
                     Id = data.User.Staff.Id_Staff,
-                    FullName = data.User.Staff.Name,
+                    Username = data.User.Staff.Name,
                     Email = data.User.Staff.Email,
                     Role = data.Role.Name
                 };
