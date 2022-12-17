@@ -7,17 +7,17 @@ namespace CutiOnlineWEB.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Employees",
+                name: "Admins",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FullName = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true)
+                    Email = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Employees", x => x.Id);
+                    table.PrimaryKey("PK_Admins", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -34,20 +34,42 @@ namespace CutiOnlineWEB.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "Staffs",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false),
-                    Password = table.Column<string>(nullable: true)
+                    Id_Staff = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Email = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_Staffs", x => x.Id_Staff);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id_Staff = table.Column<int>(nullable: false),
+                    Password = table.Column<string>(nullable: true),
+                    Id = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id_Staff);
                     table.ForeignKey(
-                        name: "FK_Users_Employees_Id",
+                        name: "FK_Users_Admins_Id",
                         column: x => x.Id,
-                        principalTable: "Employees",
+                        principalTable: "Admins",
                         principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Users_Staffs_Id_Staff",
+                        column: x => x.Id_Staff,
+                        principalTable: "Staffs",
+                        principalColumn: "Id_Staff",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -73,7 +95,7 @@ namespace CutiOnlineWEB.Migrations
                         name: "FK_UserRoles_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
+                        principalColumn: "Id_Staff",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -86,6 +108,11 @@ namespace CutiOnlineWEB.Migrations
                 name: "IX_UserRoles_UserId",
                 table: "UserRoles",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_Id",
+                table: "Users",
+                column: "Id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -100,7 +127,10 @@ namespace CutiOnlineWEB.Migrations
                 name: "Users");
 
             migrationBuilder.DropTable(
-                name: "Employees");
+                name: "Admins");
+
+            migrationBuilder.DropTable(
+                name: "Staffs");
         }
     }
 }

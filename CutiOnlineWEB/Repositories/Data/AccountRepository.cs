@@ -25,20 +25,20 @@ namespace CutiOnlineWEB.Repositories.Data
         {
             try
             {
-                Employee employee = new Employee()
+                Staff Staff = new Staff()
                 {
-                    FullName = register.FullName,
+                    Name = register.Username,
                     Email = register.Email
                 };
-                myContext.Employees.Add(employee);
+                myContext.Staffs.Add(Staff);
 
-                var resultEmployee = myContext.SaveChanges();
-                if (resultEmployee > 0)
+                var resultStaff = myContext.SaveChanges();
+                if (resultStaff > 0)
                 {
-                    int id = myContext.Employees.SingleOrDefault(x => x.Email.Equals(register.Email)).Id;
+                    int id = myContext.Staffs.SingleOrDefault(x => x.Email.Equals(register.Email)).Id_Staff;
                     User user = new User()
                     {
-                        Id = id,
+                        Id_Staff = id,
                         Password = Hashing.HashPassword(register.Password)
                     };
                     myContext.Users.Add(user);
@@ -59,11 +59,11 @@ namespace CutiOnlineWEB.Repositories.Data
                         }
                         myContext.Users.Remove(user);
                         myContext.SaveChanges();
-                        myContext.Employees.Remove(employee);
+                        myContext.Staffs.Remove(Staff);
                         myContext.SaveChanges();
                         return 0;
                     }
-                    myContext.Employees.Remove(employee);
+                    myContext.Staffs.Remove(Staff);
                     myContext.SaveChanges();
                     return 0;
                 }
@@ -81,17 +81,17 @@ namespace CutiOnlineWEB.Repositories.Data
             var data = myContext.UserRoles
                 .Include(x => x.Role)
                 .Include(x => x.User)
-                .Include(x => x.User.Employee)
-                .FirstOrDefault(x => x.User.Employee.Email.Equals(login.Email));
+                .Include(x => x.User.Staff)
+                .FirstOrDefault(x => x.User.Staff.Email.Equals(login.Email));
             var verify = Hashing.ValidatePassword(login.Password, data.User.Password);
 
             if (verify)
             {
                 var response = new ResponseLogin()
                 {
-                    Id = data.User.Employee.Id,
-                    FullName = data.User.Employee.FullName,
-                    Email = data.User.Employee.Email,
+                    Id = data.User.Staff.Id_Staff,
+                    FullName = data.User.Staff.Name,
+                    Email = data.User.Staff.Email,
                     Role = data.Role.Name
                 };
                 return response;

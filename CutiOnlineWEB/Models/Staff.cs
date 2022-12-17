@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace CutiOnlineWEB.Models
 {
-    public class Employee
+    public class Staff
     {
         [Key]
-        public int Id { get; set; }
-        public string FullName { get; set; }
+        public int Id_Staff { get; set; }
         public string Email { get; set; }
+        public string Name { get; set; }
     }
 }

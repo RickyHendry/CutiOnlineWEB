@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CutiOnlineWEB.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20221217084451_UserManagement")]
+    [Migration("20221217101352_UserManagement")]
     partial class UserManagement
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,7 +20,7 @@ namespace CutiOnlineWEB.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CutiOnlineWEB.Models.Employee", b =>
+            modelBuilder.Entity("CutiOnlineWEB.Models.Admin", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,12 +30,12 @@ namespace CutiOnlineWEB.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FullName")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employees");
+                    b.ToTable("Admins");
                 });
 
             modelBuilder.Entity("CutiOnlineWEB.Models.Role", b =>
@@ -53,15 +53,41 @@ namespace CutiOnlineWEB.Migrations
                     b.ToTable("Roles");
                 });
 
+            modelBuilder.Entity("CutiOnlineWEB.Models.Staff", b =>
+                {
+                    b.Property<int>("Id_Staff")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id_Staff");
+
+                    b.ToTable("Staffs");
+                });
+
             modelBuilder.Entity("CutiOnlineWEB.Models.User", b =>
                 {
+                    b.Property<int>("Id_Staff")
+                        .HasColumnType("int");
+
                     b.Property<int>("Id")
                         .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id_Staff");
+
+                    b.HasIndex("Id");
 
                     b.ToTable("Users");
                 });
@@ -90,9 +116,15 @@ namespace CutiOnlineWEB.Migrations
 
             modelBuilder.Entity("CutiOnlineWEB.Models.User", b =>
                 {
-                    b.HasOne("CutiOnlineWEB.Models.Employee", "Employee")
+                    b.HasOne("CutiOnlineWEB.Models.Admin", "Admin")
                         .WithMany()
                         .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CutiOnlineWEB.Models.Staff", "Staff")
+                        .WithMany()
+                        .HasForeignKey("Id_Staff")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

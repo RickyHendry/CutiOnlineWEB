@@ -10,10 +10,20 @@ namespace CutiOnlineWEB.Models
     public class User
     {
         [Key]
-        [ForeignKey("Employee")]
-        public int Id { get; set; }
+        [ForeignKey("Staff")]
+        public int Id_Staff { get; set; }
         public string Password { get; set; }
 
-        public Employee Employee { get; set; }
+        public Admin Admin { get; set; }
+        [ForeignKey("Admin")]
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public Staff Staff { get; set; }
+
+
+
+
+
+
     }
 }
