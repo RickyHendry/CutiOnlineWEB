@@ -66,7 +66,7 @@ namespace CutiOnlineWEB.Controllers
                     HttpContext.Session.SetInt32("Id", data.Id);
                     return RedirectToAction("Index", "Home");
                 }
-                return RedirectToAction("Dashboard", "Admin");
+                return RedirectToAction("Unauthorized", "ErrorPage");
                 }
             return View();
         }
