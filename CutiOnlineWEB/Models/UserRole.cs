@@ -10,7 +10,7 @@ namespace CutiOnlineWEB.Models
     public class UserRole
     {
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         public User User { get; set; }
         [ForeignKey("User")]

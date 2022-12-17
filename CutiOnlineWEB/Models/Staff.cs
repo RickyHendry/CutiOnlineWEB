@@ -10,7 +10,7 @@ namespace CutiOnlineWEB.Models
     {
         [Key]
         public int Id_Staff { get; set; }
-        public string Email { get; set; }
-        public string Name { get; set; }
+        public string EmailSt { get; set; }
+        public string NameSt { get; set; }
     }
 }

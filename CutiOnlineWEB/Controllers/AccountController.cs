@@ -38,16 +38,16 @@ namespace CutiOnlineWEB.Controllers
         }
 
 
-        [HttpPost]
-        public IActionResult Register(Register register)
-        {
-            var data = accountRepository.Register(register);
-            if (data > 0)
-            {
-                return RedirectToAction("Login", "Account");
-            }
-            return View();
-        }
+        //[HttpPost]
+        //public IActionResult Register(Register register)
+        //{
+        //    var data = accountRepository.Register(register);
+        //    if (data > 0)
+        //    {
+        //        return RedirectToAction("Login", "Account");
+        //    }
+        //    return View();
+        //}
 
         [HttpPost]
         //[ValidateAntiForgeryToken]
