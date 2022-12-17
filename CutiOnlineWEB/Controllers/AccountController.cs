@@ -36,10 +36,6 @@ namespace CutiOnlineWEB.Controllers
         {
             return View();
         }
-        public IActionResult User()
-        {
-            return View();
-        }
 
 
         [HttpPost]
@@ -72,28 +68,6 @@ namespace CutiOnlineWEB.Controllers
                 }
                 return RedirectToAction("Unauthorized", "ErrorPage");
                 }
-            return View();
-        }
-
-        [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public IActionResult Pengguna(Pengguna pengguna)
-        {
-            if (ModelState.IsValid)
-            {
-                //statement mengambil data dari database sesuai dengan email dan password
-                //return Id employee, FullName, Email, Role -> Masukkan ke ViewModels
-                var data = accountRepository.Pengguna(pengguna);
-
-                if (data != null)
-                {
-                    //inisialisasi nilai pada session
-                    HttpContext.Session.SetString("Role", data.Role);
-                    HttpContext.Session.SetInt32("Id", data.Id);
-                    return RedirectToAction("Privacy", "Home");
-                }
-                return RedirectToAction("Unauthorized", "ErrorPage");
-            }
             return View();
         }
     }
