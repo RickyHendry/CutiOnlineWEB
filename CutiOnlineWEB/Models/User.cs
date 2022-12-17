@@ -16,8 +16,6 @@ namespace CutiOnlineWEB.Models
         public string Password { get; set; }
         public Employee Employee { get; set; }
         public Admin Admin { get; set; }
-        
 
-        
     }
 }
