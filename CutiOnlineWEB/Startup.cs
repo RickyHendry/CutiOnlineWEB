@@ -29,7 +29,7 @@ namespace CutiOnlineWEB
             services.AddRazorPages();
 
             // dependence injection
-            services.AddScoped<CrudRepository>();
+            
             
 
             services.AddScoped<AccountRepository>();
