@@ -21,5 +21,6 @@ namespace CutiOnlineWEB.Context
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Admin> Admins { get; set; }
     }
 }

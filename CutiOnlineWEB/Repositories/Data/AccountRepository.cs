@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CutiOnlineWEB.Models;
 
 namespace CutiOnlineWEB.Repositories.Data
 {
@@ -79,31 +78,78 @@ namespace CutiOnlineWEB.Repositories.Data
         }
         public ResponseLogin Login(Login login)
         {
-            var data = myContext.UserRoles
-                .Include(x => x.Role)
-                .Include(x => x.User)
-                .Include(x => x.User.Employee)
-                .FirstOrDefault(x => x.User.Employee.Email.Equals(login.Email));
-            var verify = Hashing.ValidatePassword(login.Password, data.User.Password);
+            //var data = myContext.UserRoles
+            //    .Include(x => x.Role)
+            //    .Include(x => x.User)
+            //    .Include(x => x.User.Employee)
+            //    .FirstOrDefault(x => x.User.Employee.Email.Equals(login.Email));
+            //var verify = Hashing.ValidatePassword(login.Password, data.User.Password);
 
-            if (verify)
+            //if (verify)
+            //{
+            //    var response = new ResponseLogin()
+            //    {
+            //        Id = data.User.Employee.Id,
+            //        FullName = data.User.Employee.FullName,
+            //        Email = data.User.Employee.Email,
+            //        Role = data.Role.Name
+            //    };
+            //    return response;
+            //}
+            //return null;
+            var data = myContext.UserRoles
+               .Include(x => x.Role)
+               .Include(x => x.User)
+               .FirstOrDefault(x => x.User.Email.Equals(login.Email));
+            var Verify = Hashing.ValidatePassword(login.Password, data.User.Password);
+            if (Verify)
             {
-                var response = new ResponseLogin()
+                if (data.Role.Id == 1)
                 {
-                    Id = data.User.Employee.Id,
-                    FullName = data.User.Employee.FullName,
-                    Email = data.User.Employee.Email,
-                    Role = data.Role.Name
-                };
-                return response;
+                    var data1 = myContext.UserRoles
+                                .Include(x => x.Role)
+                                .Include(x => x.User)
+                                .Include(x => x.User.Admin)
+                                .FirstOrDefault(x => x.User.Email.Equals(login.Email));
+                    var verify = Hashing.ValidatePassword(login.Password, data.User.Password);
+                    if (Verify)
+                        if (data1 != null)
+                        {
+                            var respon = new ResponseLogin()
+                            {
+                                Id = data1.User.Id,
+                                IdRole = data1.Role.Id,
+                                FullName = data1.User.Admin.Email,
+                                Role = data1.Role.Name
+                            };
+                            return respon;
+                        }
+                }
+                else if (data.Role.Id == 2)
+                {
+                    var data1 = myContext.UserRoles
+                               .Include(x => x.Role)
+                               .Include(x => x.User)
+                               .Include(x => x.User.Employee)
+                               .FirstOrDefault(x => x.User.Email.Equals(login.Email));
+                    var verify = Hashing.ValidatePassword(login.Password, data.User.Password);
+                    if (Verify)
+                        if (data1 != null)
+                        {
+                            var respon = new ResponseLogin()
+                            {
+                                Id = data1.User.Id,
+                                IdRole = data1.Role.Id,
+                                FullName = data1.User.Employee.FullName,
+                                Role = data1.Role.Name
+                            };
+                            return respon;
+                        }
+                }
             }
             return null;
+
         }
-
-
-
-
-
-
     }
+   
 }
