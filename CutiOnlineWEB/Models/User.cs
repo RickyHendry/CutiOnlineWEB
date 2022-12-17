@@ -11,12 +11,11 @@ namespace CutiOnlineWEB.Models
     {
         [Key]
         [ForeignKey("Staff")]
-        public Staff Staff { get; set; }
-        public int Id_Staff { get; set; }
+        public int StaffId { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public Staff Staff { get; set; }
 
-        
         [ForeignKey("Admin")]
         public Admin Admin { get; set; }
         public int Id { get; set; }
