@@ -27,7 +27,7 @@ namespace CutiOnlineWEB.Repositories.Data
             {
                 Employee employee = new Employee()
                 {
-                    FullName = register.FullName,
+                    Name = register.Name,
                     Email = register.Email
                 };
                 myContext.Employees.Add(employee);
@@ -78,79 +78,81 @@ namespace CutiOnlineWEB.Repositories.Data
         }
         public ResponseLogin Login(Login login)
         {
-            //var data = myContext.UserRoles
-            //    .Include(x => x.Role)
-            //    .Include(x => x.User)
-            //    .Include(x => x.User.Employee)
-            //    .FirstOrDefault(x => x.User.Employee.Email.Equals(login.Email));
-            //var verify = Hashing.ValidatePassword(login.Password, data.User.Password);
-
-            //if (verify)
-            //{
-            //    var response = new ResponseLogin()
-            //    {
-            //        Id = data.User.Employee.Id,
-            //        FullName = data.User.Employee.FullName,
-            //        Email = data.User.Employee.Email,
-            //        Role = data.Role.Name
-            //    };
-            //    return response;
-            //}
-            //return null;
             var data = myContext.UserRoles
-               .Include(x => x.Role)
-               .Include(x => x.User)
-               //.Include(x => x.User.Employee)
-               .FirstOrDefault(x => x.User.Employee.Email.Equals(login.Email));
+                .Include(x => x.Role)
+                .Include(x => x.User)
+                .Include(x => x.User.Employee)
+                .FirstOrDefault(x => x.User.Employee.Email.Equals(login.Email));
             var verify = Hashing.ValidatePassword(login.Password, data.User.Password);
+
             if (verify)
             {
-                if (data.Role.Id == 1)
+                var response = new ResponseLogin()
                 {
-                    var data1 = myContext.UserRoles
-                                .Include(x => x.Role)
-                                .Include(x => x.User)
-                                .Include(x => x.User.Admin)
-                                .FirstOrDefault(x => x.User.Admin.Email.Equals(login.Email));
-                    var Verify = Hashing.ValidatePassword(login.Password, data.User.Password);
-                    if (verify)
-                        if (data1 != null)
-                        {
-                            var respon = new ResponseLogin()
-                            {
-                                Id = data1.User.Id,
-                                IdRole = data1.Role.Id,
-                                FullName = data1.User.Admin.Email,
-                                Role = data1.Role.Name
-                            };
-                            return respon;
-                        }
-                }
-                else if (data.Role.Id == 2)
-                {
-                    var data2 = myContext.UserRoles
-                               .Include(x => x.Role)
-                               .Include(x => x.User)
-                               .Include(x => x.User.Employee)
-                               .FirstOrDefault(x => x.User.Employee.Email.Equals(login.Email));
-                    var Verify = Hashing.ValidatePassword(login.Password, data.User.Password);
-                    if (verify)
-                        if (data2 != null)
-                        {
-                            var respon = new ResponseLogin()
-                            {
-                                Id = data2.User.Id,
-                                IdRole = data2.Role.Id,
-                                FullName = data2.User.Employee.FullName,
-                                Role = data2.Role.Name
-                            };
-                            return respon;
-                        }
-                }
+                    Id = data.User.Employee.Id,
+                    FullName = data.User.Employee.Name,
+                    Email = data.User.Employee.Email,
+                    Role = data.Role.Name
+                };
+                return response;
             }
             return null;
-
         }
+
+        //public ResponseLogin Login(Login login)
+        //{
+        //    var data = myContext.UserRoles
+        //        .Include(x => x.Role)
+        //        .Include(x => x.User)
+        //        .FirstOrDefault(x => x.User.Employee.Equals(login.Email));
+        //    var Verify = Hashing.ValidatePassword(login.Password, data.User.Password);
+        //    if (Verify)
+        //    {
+        //        if (data.Role.Id == 1)
+        //        {
+        //            var data1 = myContext.UserRoles
+        //                        .Include(x => x.Role)
+        //                        .Include(x => x.User)
+        //                        .Include(x => x.User.Admin)
+        //                        .FirstOrDefault(x => x.User.Admin.Equals(login.Email));
+        //            var verify = Hashing.ValidatePassword(login.Password, data.User.Password);
+        //            if (Verify)
+        //                if (data1 != null)
+        //                {
+        //                    var respon = new ResponseLogin()
+        //                    {
+        //                        Id = data1.User.Id,
+        //                        IdRole = data1.Role.Id,
+        //                        FullName = data1.User.Admin.Email,
+        //                        Role = data1.Role.Name
+        //                    };
+        //                    return respon;
+        //                }
+        //        }
+        //        else if (data.Role.Id == 2)
+        //        {
+        //            var data1 = myContext.UserRoles
+        //                       .Include(x => x.Role)
+        //                       .Include(x => x.User)
+        //                       .Include(x => x.User.Employee)
+        //                       .FirstOrDefault(x => x.User.Employee.Equals(login.Email));
+        //            var verify = Hashing.ValidatePassword(login.Password, data.User.Password);
+        //            if (Verify)
+        //                if (data1 != null)
+        //                {
+        //                    var respon = new ResponseLogin()
+        //                    {
+        //                        Id = data1.User.Id,
+        //                        IdRole = data1.Role.Id,
+        //                        FullName = data1.User.Employee.Name,
+        //                        Role = data1.Role.Name
+        //                    };
+        //                    return respon;
+        //                }
+        //        }
+        //    }
+        //    return null;
+
+        //}
     }
-   
 }
